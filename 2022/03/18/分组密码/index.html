@@ -79,25 +79,30 @@
 
 
 
-<meta name="description" content="把一些最基础的知识梳理一遍">
+<meta name="description" content="分组密码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="密码学基础笔记">
-<meta property="og:url" content="https://jeddie23.github.io/2022/02/28/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="分组密码">
+<meta property="og:url" content="https://jeddie23.github.io/2022/03/18/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/index.html">
 <meta property="og:site_name" content="jeddie的随笔">
-<meta property="og:description" content="把一些最基础的知识梳理一遍">
+<meta property="og:description" content="分组密码">
 <meta property="og:locale">
-<meta property="og:image" content="https://s1.ax1x.com/2022/03/17/qCBlCQ.jpg">
-<meta property="og:image" content="https://s1.ax1x.com/2022/03/17/qCrCSH.jpg">
-<meta property="og:image" content="https://s1.ax1x.com/2022/03/17/qCrHN8.jpg">
-<meta property="og:image" content="https://s1.ax1x.com/2022/03/17/qPiVts.jpg">
-<meta property="og:image" content="https://s1.ax1x.com/2022/03/17/qPW34I.jpg">
-<meta property="og:image" content="https://s1.ax1x.com/2022/03/18/qiG6fI.jpg">
-<meta property="article:published_time" content="2022-02-28T08:08:08.000Z">
-<meta property="article:modified_time" content="2022-03-18T03:31:18.938Z">
+<meta property="og:image" content="https://s1.ax1x.com/2022/03/19/qVlZ7D.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/03/19/qV1MaF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/03/19/qV3YWj.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/03/19/qV8ptg.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/03/20/qVwcVA.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/03/20/qVwq5q.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/03/20/qV0KZd.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/03/20/qV01it.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/03/20/qV0Gz8.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/03/20/qVUU4f.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/03/20/qVd0mj.png">
+<meta property="article:published_time" content="2022-03-18T03:25:26.000Z">
+<meta property="article:modified_time" content="2022-03-19T17:36:07.029Z">
 <meta property="article:author" content="罗致远">
 <meta property="article:tag" content="密码学">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s1.ax1x.com/2022/03/17/qCBlCQ.jpg">
+<meta name="twitter:image" content="https://s1.ax1x.com/2022/03/19/qVlZ7D.png">
 
 
 
@@ -127,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="https://jeddie23.github.io/2022/02/28/密码学基础笔记/"/>
+  <link rel="canonical" href="https://jeddie23.github.io/2022/03/18/分组密码/"/>
 
 
 
 
 
-  <title>密码学基础笔记 | jeddie的随笔</title>
+  <title>分组密码 | jeddie的随笔</title>
   
 
 
@@ -270,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jeddie23.github.io/2022/02/28/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://jeddie23.github.io/2022/03/18/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -287,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">密码学基础笔记</h1>
+          <h1 class="post-title" itemprop="name headline">分组密码</h1>
         
 
         <div class="post-meta">
@@ -299,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-02-28T16:08:08+08:00">
-                2022-02-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-18T11:25:26+08:00">
+                2022-03-18
               </time>
             
 
@@ -340,8 +345,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2022/02/28/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2022/02/28/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+                <a href="/2022/03/18/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2022/03/18/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -374,107 +379,62 @@
       
 
       
-        <p>把一些最基础的知识梳理一遍</p>
-<span id="more"></span>
+        <h1 id="分组密码"><a href="#分组密码" class="headerlink" title="分组密码"></a>分组密码</h1><span id="more"></span>
 
-<h1 id="1">网络安全基础</h1>
+<h2 id="1">AES加密算法</h2>
 
-<h2 id="2">安全基础知识</h2>
+<p>AES为最常见的对称加密算法(微信小程序加密传输就是用这个算法)，AES算法并不属于Feistel分组加密算法结构的算法。AES加密算法在最初设计的时候分组长度和密钥长度都是可变的，</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qVlZ7D"><img src="https://s1.ax1x.com/2022/03/19/qVlZ7D.png" alt="qVlZ7D.png" style="zoom:33%;" /></a></p>
+<p>这里以密钥长度为128位的情况举例说明。</p>
+<p>下图是加密的大致流程：</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qV1MaF"><img src="https://s1.ax1x.com/2022/03/19/qV1MaF.png" alt="qV1MaF.png" style="zoom: 50%;" /></a></p>
+<p>明文在开始进行迭代加密之前需要与轮密钥进行一次异或操作，迭代的次数为总轮次-1，也就是说128位密钥的AES算法需要先进行9轮的迭代，因为第十轮也就是最后一轮迭代不需要进行列混合变换。</p>
+<h3 id="1.1">初始变换</h3>
 
-<p>互联网上数据交换时出现的四个代表性问题</p>
-<p>（1）当A向B发送消息时，传输中message内容可能会被X方窃听，这个问题被称为    “窃听”</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qCBlCQ"><img src="https://s1.ax1x.com/2022/03/17/qCBlCQ.jpg" alt="qCBlCQ.jpg" style="zoom: 33%;" /></a></p>
-<p>（2）A方试图把massage发送给B方，X方可能欺骗了B方，同理，即使B方信任A方的message，X方可能欺骗A方，这个问题被称作  “欺骗”</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qCrCSH"><img src="https://s1.ax1x.com/2022/03/17/qCrCSH.jpg" alt="qCrCSH.jpg" style="zoom: 33%;" /></a></p>
-<p>（3）</p>
-<p>在确定A向B已经传送了message，在传输通道上message也有可能被第三方重写，该问题被称为  “伪造”</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qCrHN8"><img src="https://s1.ax1x.com/2022/03/17/qCrHN8.jpg" alt="qCrHN8.jpg" style="zoom:33%;" /></a></p>
-<p>(4)</p>
-<p>在B方相信收到了A方的message后，而A方可能带有恶意的发送，并且坚持声称该message不是他发送的，这个问题叫 “否认”</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qPiVts"><img src="https://s1.ax1x.com/2022/03/17/qPiVts.jpg" alt="qPiVts.jpg" style="zoom:33%;" /></a></p>
-<h2 id="3">加密基础</h2>
+<p>在密钥加法层中有两个输入的参数，分别是明文和子密钥k[0]，而且这两个输入都是128位的。<strong>只需要将两个输入的数据进行按字节异或操作就会得到运算的结果。</strong></p>
+<h3 id="1.2">迭代加密</h3>
 
-<blockquote>
-<p>为什么加密</p>
-</blockquote>
-<p>当A通过网络向B发送数据时，如果原封不动发送数据，恶意的第三方可以截取到数据，因此必须发送由明文(plaintext)加密（encrypt）后的数据，B收到密文(cyphertext)后进行解密（decrypt）</p>
-<blockquote>
-<p>加密技术-密钥</p>
-</blockquote>
-<p>数据是对计算机有意义的数字序列，密文是一个随机数字序列，使用key(密钥)进行加密解密</p>
-<blockquote>
-<p>简单示例</p>
-</blockquote>
-<p><strong>异或加密</strong></p>
-<p>message &#x3D; 0101          key &#x3D; 1100</p>
-<p>对message进行加密 即 0101 $\oplus$ 1100 &#x3D; 1001 即为密文。</p>
-<p>对密文进行解密 即 1001 $\oplus$ 1100 &#x3D; 0101 即为原始数据。</p>
-<p>在这里异或加密使用<u>相同的密钥</u>进行加密解密</p>
-<h3>密码分析中的四种攻击</h3>
+<h4 id="1.2.1">字节代换</h4>
 
-<p>1.唯密文攻击（Ciphertext only Attack）</p>
-<p>​    仅知密文的情况下进行穷举攻击</p>
-<p>2.已知明文攻击（Known Plaintext Attack）</p>
-<p>​    得到了一些给定的明文和对应的密文，即已知部分明密文对</p>
-<p>3.选择明文攻击（Chosen Plaintext Attack）</p>
-<p>​    攻击者拥有加密机的访问权限，可构造任意明文所对应的密文。但是不能直接攻破秘钥</p>
-<p>4.选择密文攻击（Chosen Ciphertext Attack）</p>
-<p>​    攻击者掌握对解密机的访问权限，还可以任意制造或者选择一些密文，并得到其解密后的明文。比如用一定的手段在通信过程中伪造消息替换真实消息，然后窃取收取方获得并解密的结果，</p>
-<h2 id="4">哈希函数</h2>
+<p><strong>即把输入的数据通过一个S盒完成从一个字节到另一个字节的映射</strong>，逆S盒与S盒对应，用于解密时对数据处理。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qV3YWj"><img src="https://s1.ax1x.com/2022/03/19/qV3YWj.png" alt="qV3YWj.png" style="zoom:50%;" /></a></p>
+<h4 id="1.2.2">行移位</h4>
 
-<p>可以把哈希函数理解为一个数据搅拌器，</p>
-<p>它是一个将任意长度的消息（message）映射成固定长度消息的函数。</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qPW34I"><img src="https://s1.ax1x.com/2022/03/17/qPW34I.jpg" alt="qPW34I.jpg" style="zoom:33%;" /></a></p>
-<h3 id="4.1">Hash函数的碰撞（collision）</h3>
+<p><strong>在加密时，保持矩阵的第一行不变，第二行向左移动8Bit(一个字节)、第三行向左移动2个字节、第四行向左移动3个字节。而在解密时恰恰相反，依然保持第一行不变，将第二行向右移动一个字节、第三行右移2个字节、第四行右移3个字节</strong></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qV8ptg"><img src="https://s1.ax1x.com/2022/03/19/qV8ptg.png" alt="qV8ptg.png" style="zoom:50%;" /></a></p>
+<h4 id="1.2.3">列混合</h4>
 
-<p>设x、x’是两个不同的消息，如果</p>
-<p>h(x) &#x3D; h(x’)</p>
-<p>则称x和x’是Hash函数h的一个（对）碰撞.</p>
-<h3 id="4.2">Hash函数的分类</h3>
+<p><strong>扩展域GF(2^m)内的乘法</strong></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qVwcVA"><img src="https://s1.ax1x.com/2022/03/20/qVwcVA.png" alt="qVwcVA.png" style="zoom:50%;" /></a></p>
+<p>列混合变换是通过矩阵相乘来实现的，经行移位后的状态矩阵与固定的矩阵相乘，得到混淆后的状态矩阵，如下图的公式所示：</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qVwq5q"><img src="https://s1.ax1x.com/2022/03/20/qVwq5q.png" alt="qVwq5q.png" style="zoom:50%;" /></a></p>
+<p>其中，矩阵元素的乘法和加法都是定义在基于GF($2^8$)上的二元运算,</p>
+<p>对于一个8位的二进制数来说，使用域上的乘法乘以(00000010)等价于左移1位(低位补0)后，再根据情况同(00011011)进行异或运算，设S1 &#x3D; (a7 a6 a5 a4 a3 a2 a1 a0)，0x02 * S1如下图所示：</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qV0KZd"><img src="https://s1.ax1x.com/2022/03/20/qV0KZd.png" alt="qV0KZd.png"></a></p>
+<p>也就是说，如果a7为1，则进行异或运算，否则不进行。类似地，乘以(00000100)可以拆分成两次乘以(00000010)的运算</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qV01it"><img src="https://s1.ax1x.com/2022/03/20/qV01it.png" alt="qV01it.png" style="zoom:50%;" /></a></p>
+<p>乘以(0000 0011)可以拆分成先分别乘以(0000 0001)和(0000 0010)，再将两个乘积异或：</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qV0Gz8"><img src="https://s1.ax1x.com/2022/03/20/qV0Gz8.png" alt="qV0Gz8.png" style="zoom:50%;" /></a></p>
+<p>逆向列混合变换就是把上图固定的矩阵换成另一个，用来解密。</p>
+<h4 id="1.2.4">轮密钥加</h4>
 
-<ul>
-<li>单向Hash函数（one-way） 给定一个Hash值y，如果寻找一个消息x，使得y&#x3D;h (x)是计算上不可行的，则称h是单向Hash函数.</li>
-<li>弱抗碰撞Hash函数（weakly collision-free） 任给一个消息x，如果寻找另一个不同的消息x’，使得h(x) &#x3D;h(x’)是计算上不可行的，则称h是弱抗碰撞Hash函数.</li>
-<li>强抗碰撞Hash函数 （strongly collision-free） 如果寻找两个不同的消息x和x’，使得h(x)&#x3D;h(x’)是计算上不可行的，则称h是强抗碰撞Hash函数.</li>
-</ul>
-<h3 id='4.3'>安全Hash函数</h3>
+<p>将列混合得到的结果与子密钥进行异或，轮密钥加的逆运算同正向的轮密钥加运算完全一致，因为异或的逆操作是其自身。轮密钥加非常简单，但却能够影响S数组中的每一位。</p>
+<h3 id="1.3">密钥生成</h3>
 
-<ul>
-<li>安全Hash函数h(x)应具有以下性质：<ul>
-<li>对任意的消息x，计算h(x)是容易的；</li>
-<li>h是单向的；</li>
-<li>h是弱抗碰撞的，或是强抗碰撞的。</li>
-</ul>
-</li>
-</ul>
-<h3 id="4.4">哈希函数的定义</h3>
-
-<p>一个哈希函数(输出长度为 l )由两个PPT上的算法(Gen, H)构成</p>
-<ul>
-<li>Gen：一个概率算法，以一个安全参数$1^n$作为输入，然后输出密钥 s ，假设安全参数 $1^n$ 隐含在s中。</li>
-<li>H：将一个密钥 s 以及一个01串 x ∈{0, 1}*作为输入，然后输出Hs(x)∈{0, 1}l(n)，其中的 n 是隐含在 s 中的安全参数。</li>
-</ul>
-<p>如果 H 是定义在输入固定为 x∈{0, 1}l’(n)并且l’(n)&gt;l(n)，则称这种哈希函数是一个固定长度的哈希函数，并且称算法 H 为压缩函数。</p>
-<h3 id="4.5">Hash函数的安全性</h3>
-
-<ul>
-<li>对Hash函数的攻击是指寻找一对碰撞消息的过程</li>
-<li>生日悖论（birthday paradox） 生日问题：假设每个人的生日是等概率的，每年有365天，在k个人中至少有两个人的生日相同的概率大于1&#x2F;2，问k最小应是多少？ k人生日都不同的概率是：</li>
-</ul>
-<p>$(1-\frac{1}{365})(1-\frac{2}{365}…(1-\frac{k-1}{365})$</p>
-<p>k人中至少有2人生日相同的概率为：</p>
-<p>$p(365,k)&#x3D;1-(1-\frac{1}{365})(1-\frac{2}{365}…(1-\frac{k-1}{365})$</p>
-<p>有P(365,23)&#x3D;0.5073。即在23个人中，至少有两个人生日相同的概率大于0.5，这个数字比人们直观猜测的结果小得多，因而称为生日悖论。</p>
-<p><a target="_blank" rel="noopener" href="https://firmianay.gitbooks.io/ctf-all-in-one/content/doc/1.6.5_hash.html#hash%E5%87%BD%E6%95%B0">参考链接</a></p>
-<h3 id="5">对称加密</h3>
-
-<p>即使用相同密钥加解密的加密方法，</p>
-<p>A用key将消息加密后传送给B，B使用相同密钥进行解密。</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qiG6fI"><img src="https://s1.ax1x.com/2022/03/18/qiG6fI.jpg" alt="qiG6fI.jpg" style="zoom:33%;" /></a></p>
-<blockquote>
-<p>分组密码</p>
-</blockquote>
-<p><a href="/2022/03/18/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/">参考另一篇文章</a></p>
+<p><strong>子密钥的生成以列为单位进行，一列是32Bit，四列组成子密钥共128Bit。生成子密钥的数量比AES算法的轮数多一个，因为第一个密钥加法层进行密钥漂白时也需要子密钥。密钥漂白是指在AES的输入和输出中都使用的子密钥的异或加法。子密钥在图中都存储在W[0]、W[1]、…、W[43]的扩展密钥数组之中。k1-k16表示原始密钥对应的字节，在生成的扩展密钥中W的下标如果是4的倍数时(从零开始)需要对异或的参数进行G函数处理。</strong></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qVUU4f"><img src="https://s1.ax1x.com/2022/03/20/qVUU4f.png" alt="qVUU4f.png" style="zoom:50%;" /></a></p>
+<p>当 i 是4的倍数，如图，异或前需要其中的W[i-1]被函数T处理，</p>
+<p>函数T由三部分组成，</p>
+<p><strong>字循环，字节代换，轮常量异或</strong></p>
+<p>1、字循环</p>
+<p>将一列中的四个字节左移一个字节，即[b0，b1，b2，b3] 变换成 [b1，b2，b3，b0]</p>
+<p>2、字节代换</p>
+<p>对字循环的结果使用S盒进行字节代换</p>
+<p>3、轮常量异或</p>
+<p>将前两步结果同轮常量进行异或，<em>轮系数是一个有10个元素的一维数组，一个元素1个字节。G()函数存在的目的有两个，一是增加密钥编排中的非线性；二是消除AES中的对称性。这两种属性都是抵抗某些分组密码攻击必要的。</em></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qVd0mj"><img src="https://s1.ax1x.com/2022/03/20/qVd0mj.png" alt="qVd0mj.png" style="zoom:50%;" /></a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/78913397">参考链接1</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_28205153/article/details/55798628">参考链接2</a></p>
 
       
     </div>
@@ -505,8 +465,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2022/02/28/markdown-study/" rel="next" title="Markdown_study">
-                <i class="fa fa-chevron-left"></i> Markdown_study
+              <a href="/2022/02/28/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" rel="next" title="密码学基础笔记">
+                <i class="fa fa-chevron-left"></i> 密码学基础笔记
               </a>
             
           </div>
@@ -514,10 +474,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2022/03/18/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/" rel="prev" title="分组密码">
-                分组密码 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -666,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-number">1.</span> <span class="nav-text">网络安全基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2"><span class="nav-number">1.1.</span> <span class="nav-text">安全基础知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3"><span class="nav-number">1.2.</span> <span class="nav-text">加密基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.1.</span> <span class="nav-text">密码分析中的四种攻击</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4"><span class="nav-number">1.3.</span> <span class="nav-text">哈希函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4.1"><span class="nav-number">1.3.1.</span> <span class="nav-text">Hash函数的碰撞（collision）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4.2"><span class="nav-number">1.3.2.</span> <span class="nav-text">Hash函数的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4.3"><span class="nav-number">1.3.3.</span> <span class="nav-text">安全Hash函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4.4"><span class="nav-number">1.3.4.</span> <span class="nav-text">哈希函数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4.5"><span class="nav-number">1.3.5.</span> <span class="nav-text">Hash函数的安全性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5"><span class="nav-number">1.3.6.</span> <span class="nav-text">对称加密</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">分组密码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1"><span class="nav-number">1.1.</span> <span class="nav-text">AES加密算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1.1"><span class="nav-number">1.1.1.</span> <span class="nav-text">初始变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1.2"><span class="nav-number">1.1.2.</span> <span class="nav-text">迭代加密</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1.2.1"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">字节代换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1.2.2"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">行移位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1.2.3"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">列混合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1.2.4"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">轮密钥加</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1.3"><span class="nav-number">1.1.3.</span> <span class="nav-text">密钥生成</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
