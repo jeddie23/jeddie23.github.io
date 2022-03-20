@@ -97,8 +97,18 @@
 <meta property="og:image" content="https://s1.ax1x.com/2022/03/20/qV0Gz8.png">
 <meta property="og:image" content="https://s1.ax1x.com/2022/03/20/qVUU4f.png">
 <meta property="og:image" content="https://s1.ax1x.com/2022/03/20/qVd0mj.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/03/20/qZfJvd.png">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=(X_0,X_1,X_2,X_3)">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=X_4=F(X_0,X_1,X_2,X_3,rk_0)">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=X_5=F(X_1,X_2,X_3,X_4,rk_1)">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=X_%7B4+i%7D=F(X_i,X_%7Bi+1%7D,X_%7Bi+2%7D,X_%7Bi+3%7D,rk_i)">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=i%5Cin%5B0,31%5D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=(X_0,X_1,X_2,X_3,...,X_%7B32%7D,X_%7B33%7D,X_%7B34%7D,X_%7B35%7D)">
+<meta property="og:image" content="https://s1.ax1x.com/2022/03/20/qZqeJI.png">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=(X_%7B32%7D,X_%7B33%7D,X_%7B34%7D,X_%7B35%7D)">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=(Y_0,Y_1,Y_2,Y_3)=(X_%7B35%7D,X_%7B34%7D,X_%7B33%7D,X_%7B32%7D)">
 <meta property="article:published_time" content="2022-03-18T03:25:26.000Z">
-<meta property="article:modified_time" content="2022-03-19T17:36:07.029Z">
+<meta property="article:modified_time" content="2022-03-20T09:02:17.008Z">
 <meta property="article:author" content="罗致远">
 <meta property="article:tag" content="密码学">
 <meta name="twitter:card" content="summary">
@@ -433,8 +443,44 @@
 <p>3、轮常量异或</p>
 <p>将前两步结果同轮常量进行异或，<em>轮系数是一个有10个元素的一维数组，一个元素1个字节。G()函数存在的目的有两个，一是增加密钥编排中的非线性；二是消除AES中的对称性。这两种属性都是抵抗某些分组密码攻击必要的。</em></p>
 <p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qVd0mj"><img src="https://s1.ax1x.com/2022/03/20/qVd0mj.png" alt="qVd0mj.png" style="zoom:50%;" /></a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/78913397">参考链接1</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_28205153/article/details/55798628">参考链接2</a></p>
+<h2 id="2">国密SM4加密算法</h2>
+
+<h3 id="2.1">简介</h3>
+
+<p>SMS4是我国无线局域网标准WAPI中所采用的分组密码标准，随后被我国商用密码标准采用，又名SM4（SM是“商密”的缩写，目前公布的其他商密标准包括SM2椭圆曲线公钥密码、SM3密码杂凑算法）。作为我国商用密码的分组密码标准，SMS4在国内的敏感但非机密的应用领域会逐渐取代3DES、AES等国外分组密码标准，用于通信加密、数据加密等应用场合。</p>
+<p>SMS4的密钥长度和分组长度均为128比特，其设计安全性等同于AES-128，但是近年来的一些密码分析表明SMS4的安全性略弱于AES-128。由于SMS4的密钥长度固定为128比特，并有提供更长的可选密钥长度，因此SMS4不适用于保护需长期保密的数据，如需50年才能解密的保密文档。</p>
+<p>SM4加密大致流程：</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qZfJvd"><img src="https://s1.ax1x.com/2022/03/20/qZfJvd.png" alt="qZfJvd.png"></a></p>
+<h3 id='2.2'>加密过程</h3>
+
+<p>轮函数F：假设输入为($X_1,X_2.X_3,X_4$)，Xi 为32位，则轮函数F为：F&#x3D;($X_1,X_2,X_3,X_4$,$ rk_i$) &#x3D; $X_0$ ⊕ T( $X_1$⊕ $X_2$ ⊕ $X_3$ ⊕ $rk_i$)</p>
+<p>1、32轮迭代</p>
+<p>例如：我们现在给了4字明文 <img src="https://www.zhihu.com/equation?tex=(X_0,X_1,X_2,X_3)" alt="[公式]"> ，第一轮迭代就是使用前4字明文和第一轮的轮密钥计算第5个字： <img src="https://www.zhihu.com/equation?tex=X_4=F(X_0,X_1,X_2,X_3,rk_0)" alt="[公式]"> ，第二轮迭代就是计算第6个字： <img src="https://www.zhihu.com/equation?tex=X_5=F(X_1,X_2,X_3,X_4,rk_1)" alt="[公式]"> ……，以此类推， <img src="https://www.zhihu.com/equation?tex=X_%7B4+i%7D=F(X_i,X_%7Bi+1%7D,X_%7Bi+2%7D,X_%7Bi+3%7D,rk_i)" alt="[公式]"> （这里的 <img src="https://www.zhihu.com/equation?tex=i%5Cin%5B0,31%5D" alt="[公式]"> ，从0开始计数），<strong>执行32轮</strong>，<strong>最终，我们一共可以得到36个字</strong> <img src="https://www.zhihu.com/equation?tex=(X_0,X_1,X_2,X_3,...,X_%7B32%7D,X_%7B33%7D,X_%7B34%7D,X_%7B35%7D)" alt="[公式]"> 。到这里，我们就完成了加密过程的第一步。</p>
+<p><strong>合成置换T：</strong></p>
+<p>合成置换T 接受一字的输入A，得到一字的输出C，它包含非线性变换$\tau$和线性变换L，即 C &#x3D; T(A) &#x3D; L($\tau(A)$)</p>
+<p>（1）非线性变换$\tau$</p>
+<p>非线性变换接受一字的输入，输出一字的结果，对输入参数进行S盒变换，即</p>
+<p>B &#x3D; ($b_0,b_1,b_2,b_3$) &#x3D; $\tau(A)$ &#x3D; ($Sbox(a_0),Sbox(a_1),Sbox(a_2),Sbox(a_3)$),具体代换方法和AES中的字节代替相同。</p>
+<p>（2）线性变换L：</p>
+<p><em>循环左移的概念：在密码学中，常对一个数据进行循环左移。具体做法就是，把数据向左移动若干位，左边溢出的数字补到右边。例如：对1234567左移三位，得到4567123。</em><br>&lt;&lt;&lt;符号表示对一个循环左移</p>
+<p>运算公式为：</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/qZqeJI"><img src="https://s1.ax1x.com/2022/03/20/qZqeJI.png" alt="qZqeJI.png"></a></p>
+<p>2、反序变换</p>
+<p>加密过程的第二步是一次简单的反序变换。将迭代最后得到的四个字 <img src="https://www.zhihu.com/equation?tex=(X_%7B32%7D,X_%7B33%7D,X_%7B34%7D,X_%7B35%7D)" alt="[公式]"> 进行反序，得到最终的密文 <img src="https://www.zhihu.com/equation?tex=(Y_0,Y_1,Y_2,Y_3)=(X_%7B35%7D,X_%7B34%7D,X_%7B33%7D,X_%7B32%7D)" alt="[公式]"> 。</p>
+<p>这就是整个加密变换的过程。</p>
+<p><strong>解密过程与加密过程方法完全相同，只是轮密钥逆序使用</strong></p>
+<h3 id="2.3">密钥扩展算法</h3>
+
+<p><strong>密钥参数常数</strong>：轮密钥由加密密钥生成。FK&#x3D;($FK_0,FK_1,FK_2,FK_3$)为系统参数，以及固定参数CK&#x3D;($CK_0,CK_1,…,CK_{31}$)，其中$FK_i$和$CK_i$均为32位并用于密钥扩展算法。</p>
+<h4 id='2.3.1'>与系统参数异或——初始化密钥</h4>
+
+<p>首先需要让原始密钥的每个字$MK_i$与系统参数$FK_i$异或,得到4个新的字，公式表示为：（$K_0,K_1,K_2,K_3$） &#x3D;</p>
+<p>($MK_0 \oplus FK_0, MK_1 \oplus FK_1,MK_2 \oplus FK_2,MK_3 \oplus FK_3$)</p>
+<h4 id='2.3.2'>轮迭代生成轮密钥</h4>
+
+<p>$rk_i$&#x3D;$K_{i+4}$&#x3D;$K_i$⊕T‘($K_{i+1}$⊕$K_{i+2}$⊕$K_{i+3}$⊕$CK_i$)</p>
+<p>其中T’()是将原来的T()中的线形变换L()替换成L’(B)&#x3D;B⊕(B&lt;&lt;&lt;13)⊕(B&lt;&lt;&lt;23)</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/78913397">参考链接1</a>          <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_28205153/article/details/55798628">参考链接2</a>         <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/363900323">参考链接3</a></p>
 
       
     </div>
@@ -622,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">分组密码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1"><span class="nav-number">1.1.</span> <span class="nav-text">AES加密算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1.1"><span class="nav-number">1.1.1.</span> <span class="nav-text">初始变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1.2"><span class="nav-number">1.1.2.</span> <span class="nav-text">迭代加密</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1.2.1"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">字节代换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1.2.2"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">行移位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1.2.3"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">列混合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1.2.4"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">轮密钥加</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1.3"><span class="nav-number">1.1.3.</span> <span class="nav-text">密钥生成</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">分组密码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1"><span class="nav-number">1.1.</span> <span class="nav-text">AES加密算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1.1"><span class="nav-number">1.1.1.</span> <span class="nav-text">初始变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1.2"><span class="nav-number">1.1.2.</span> <span class="nav-text">迭代加密</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1.2.1"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">字节代换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1.2.2"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">行移位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1.2.3"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">列混合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1.2.4"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">轮密钥加</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1.3"><span class="nav-number">1.1.3.</span> <span class="nav-text">密钥生成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2"><span class="nav-number">1.2.</span> <span class="nav-text">国密SM4加密算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2.1"><span class="nav-number">1.2.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2.2"><span class="nav-number">1.2.2.</span> <span class="nav-text">加密过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2.3"><span class="nav-number">1.2.3.</span> <span class="nav-text">密钥扩展算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2.3.1"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">与系统参数异或——初始化密钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2.3.2"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">轮迭代生成轮密钥</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
