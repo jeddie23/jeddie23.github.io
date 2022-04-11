@@ -363,95 +363,14 @@
 
       
         
-          
-            <span id="more"></span>
-
-<h2 id='1'>原始类型和对象类型</h1>
-
-<h3 id='1.1'>原始类型</h3>
-
-<h4 id='1.1.1'>原始类型的不可变性</h4>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;jedddie&#x27;</span>;</span><br><span class="line">str.<span class="title function_">slice</span>(<span class="number">1</span>);</span><br><span class="line">str.<span class="title function_">split</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str); <span class="comment">//&#x27;jeddie&#x27;</span></span><br><span class="line"></span><br><span class="line">str += <span class="string">&#x27;hh&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str);<span class="comment">//&#x27;jeddiehh&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>前者调用是在原字符串基础上产生了一个新的字符串，而后者是在存储空间的栈中开辟了一块新的内存空间用于存储str，</p>
-<p>这里简单记忆一下<strong>JS的内存空间</strong>被分为栈内存和堆内存</p>
-<p>-栈内存</p>
-<p>1、存储的值大小固定      2、空间较小      3、可以直接操作其保存的变量，运行效率高    </p>
-<p>4、由系统自动分配存储空间</p>
-<h3 id='1.2'>引用类型</h3>
-
-<p>-使用堆内存</p>
-<p>1、存储的值大小不定，动态变化  2、空间占用大，运行效率低  3、无法直接操作内部存储使用引用地址读取  4、通过代码进行分配空间</p>
-<p>当然，熟悉JS的知道函数，数组也是引用类型，引用类型没有不可变性，简单举个例子：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let obj = [1,3,5];</span><br><span class="line">obj.length = 0;</span><br><span class="line">console.log(obj); //[]</span><br></pre></td></tr></table></figure>
-
-<h3 id='1.3'>区别实例</h3>
-
-<h4 id = 'copy'>复制</h4>
-
-<p><strong>原始类型</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let name = &#x27;jeddie&#x27;;</span><br><span class="line">let myName = name;</span><br><span class="line">myName = &#x27;shiro&#x27;;</span><br><span class="line">console.log(name,myName); </span><br></pre></td></tr></table></figure>
-
-<p>以上代码从name中复制出一个另外的变量myName，此时内存中开辟了一块新的空间存储myName中的值，因为两个变量存储空间的指向不同，因此后面的操作彼此不影响。</p>
-<p><strong>引用类型</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">name</span>: <span class="string">&#x27;jeddie&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> copyObj = obj;</span><br><span class="line">copyObj.<span class="property">name</span> = <span class="string">&#x27;stupid&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj); </span><br></pre></td></tr></table></figure>
-
-<p>如上代码所示，当复制一个引用类型的变量时，实际上复制的是保存在栈中的指向堆内存的一个地址，因此两个变量指向同一个堆中的对象，也就是所谓的浅拷贝。</p>
-<h4 id='compare'>比较</h4>
-
-<p>直接放代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var name = &#x27;jeddie&#x27;;</span><br><span class="line">var name1 = &#x27;jeddie&#x27;;</span><br><span class="line">console.log(name === name1); // true</span><br><span class="line">var obj1 = &#123;name:&#x27;jeddie&#x27;&#125;;</span><br><span class="line">var obj2 = &#123;name:&#x27;jeddie&#x27;&#125;;</span><br><span class="line">console.log(obj1 === obj2); // false</span><br></pre></td></tr></table></figure>
-
-<p>原始类型直接比较值，引用类型比较他们的引用地址，因为在堆中存储的地址不同，因此返回false</p>
-<h4 id='diff'>值和引用的传递</h4>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let myname = &#x27;jeddie&#x27;;</span><br><span class="line">const changeName = (name) =&gt; &#123;</span><br><span class="line">	name = &#x27;dada&#x27;;</span><br><span class="line">&#125;</span><br><span class="line">changeName(myname);</span><br><span class="line">console.log(myname); //jeddie</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let myname = &#123;name: &#x27;jeddie&#x27;&#125;;</span><br><span class="line">const changeName = (obj) =&gt; &#123;</span><br><span class="line">	obj.name = &#x27;dada&#x27;;</span><br><span class="line">&#125;</span><br><span class="line">changeName(myname);</span><br><span class="line">console.log(myname); //dada</span><br></pre></td></tr></table></figure>
-
-<p>这些代码说明：函数参数仅仅是被传入变量复制给了的一个局部变量，改变这个局部变量不会对外部变量产生影响。而第二个例子myname的值发生改变不是因为函数参数是引用类型从而发生了引用传递，而是因为此时函数复制了一个局部变量，这个局部变量存放的是一个相同的指向堆内存的地址，</p>
-<p>可见，函数参数传递的并不是变量的<code>引用</code>，而是变量拷贝的副本，当变量是原始类型时，这个副本就是值本身，当变量是引用类型时，这个副本是指向堆内存的地址。所以，再次记住：</p>
-<blockquote>
-<p><code>ECMAScript</code>中所有的函数的参数都是按值传递的。</p>
-</blockquote>
-<h2 id='symbol'>Symbol类型</h2>
-
-<p>在这里就先只说一个防止属性污染的实用实例：</p>
-<p>在某些情况下，我们可能要为对象添加一个属性，此时就有可能造成属性覆盖，用<code>Symbol</code>作为对象属性可以保证永远不会出现同名属性。</p>
-<p>如手写一个call：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">myCall</span> = <span class="keyword">function</span> (<span class="params">context</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (type <span class="keyword">of</span> <span class="variable language_">this</span> !== <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">undefined</span> <span class="comment">//防止直接调用</span></span><br><span class="line">    &#125;</span><br><span class="line">    context = context || <span class="variable language_">window</span>;</span><br><span class="line">    <span class="keyword">const</span> fn = <span class="title class_">Symbol</span>();</span><br><span class="line">    context[fn] = <span class="variable language_">this</span>;</span><br><span class="line">    <span class="keyword">const</span> args = [...<span class="variable language_">arguments</span>].<span class="title function_">slice</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">const</span> result = context[fn](...args);</span><br><span class="line">    <span class="keyword">delete</span> context[fn]</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id='3'>再探引用类型</h2>
-
-<p>我们通常所说的对象，就是某个特定引用类型的实例。</p>
-<p>在ECMAScript关于类型的定义中，只给出了Object类型，实际上，我们平时使用的很多引用类型的变量，并不是由object构造的，但是它们原型链的终点都是<code>Object</code>，这些类型都属于引用类型。如Date,Array,Function</p>
-<p><strong>包装类型</strong></p>
-<p>为了操作基本类型值，ECMAScript提供了特殊的引用类型，即基本类型的包装类型，</p>
-<p>如Boolean，Number，String</p>
-<p>注意：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let str = &#x27;123&#x27;;</span><br><span class="line">str.name = &#x27;gg&#x27;;</span><br><span class="line">console.log(str.name); //undefined</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let str1 = new String(&#x27;123&#x27;)</span><br><span class="line">str1.name = &#x27;gg&#x27;</span><br><span class="line">console.log(str1.name) //gg</span><br></pre></td></tr></table></figure>
-
-<p><em>引用类型和包装类型的区别主要就是：对象的生存期，使用new 操作符创建的引用类型的实例，在执行流离开当前作用域之前一直保存在内存中，而基本类型只存在于执行瞬间，然后立即被销毁，因此我们不能在运行时为基本类型添加属性和方法。</em></p>
-<p><strong>类型转换</strong></p>
-<p>原始类型不能扩展属性和方法，可我们在使用时可以发现原始类型可以调用，</p>
-<p>这是因为每当我们操作一个基础类型时，后台会自动创建一个包装类型的对象，从而让我们可以调用方法和属性：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let name = &#x27;jeddie&#x27;;</span><br><span class="line">console.log(name.split(&#x27;&#x27;));</span><br></pre></td></tr></table></figure>
-
-<p>以上代码创建了一个String包装类型的实例，在实例上调用了方法，然后销毁实例。</p>
-<p>从引用类型到基本类型的转换,在这里我直接贴一个<em>网上的的代码</em>，思路很清晰：</p>
-<ul>
-<li>引用类型转换为<code>Number</code>类型，先调用<code>valueOf</code>，再调用<code>toString</code></li>
-<li>引用类型转换为<code>String</code>类型，先调用<code>toString</code>，再调用<code>valueOf</code></li>
-</ul>
-<p>若<code>valueOf</code>和<code>toString</code>都不存在，或者没有返回基本类型，则抛出<code>TypeError</code>异常。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="attr">valueOf</span>: <span class="function">() =&gt;</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;valueOf&#x27;</span>); <span class="keyword">return</span> <span class="number">123</span>; &#125;,</span><br><span class="line">  <span class="attr">toString</span>: <span class="function">() =&gt;</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;toString&#x27;</span>); <span class="keyword">return</span> <span class="string">&#x27;ConardLi&#x27;</span>; &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj - <span class="number">1</span>);   <span class="comment">// valueOf   122</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;obj&#125;</span>ConardLi`</span>); <span class="comment">// toString  ConardLiConardLi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj2 = &#123;</span><br><span class="line">  [<span class="title class_">Symbol</span>.<span class="property">toPrimitive</span>]: <span class="function">() =&gt;</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;toPrimitive&#x27;</span>); <span class="keyword">return</span> <span class="number">123</span>; &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2 - <span class="number">1</span>);   <span class="comment">// toPrimitive   122</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj3 = &#123;</span><br><span class="line">  <span class="attr">valueOf</span>: <span class="function">() =&gt;</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;valueOf&#x27;</span>); <span class="keyword">return</span> &#123;&#125;; &#125;,</span><br><span class="line">  <span class="attr">toString</span>: <span class="function">() =&gt;</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;toString&#x27;</span>); <span class="keyword">return</span> &#123;&#125;; &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj3 - <span class="number">1</span>);  </span><br><span class="line"><span class="comment">// valueOf  </span></span><br><span class="line"><span class="comment">// toString</span></span><br><span class="line"><span class="comment">// TypeError</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><a target="_blank" rel="noopener" href="http://www.conardli.top/blog/article/JS%E8%BF%9B%E9%98%B6/%E4%BD%A0%E7%9C%9F%E7%9A%84%E6%8E%8C%E6%8F%A1%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E5%9E%8B%E4%BA%86%E5%90%97%EF%BC%88%E4%BA%8C%EF%BC%89%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.html">参考资料</a></p>
-
-          
+          <h2 id='1'>原始类型和对象类型</h1>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2022/04/11/JS%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E5%9E%8B/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
