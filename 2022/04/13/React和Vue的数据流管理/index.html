@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="笔记," />
+  <meta name="keywords" content="前端学习," />
 
 
 
@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="各级标题(#)">
+<meta name="description" content="前端的数据流与数据绑定">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown_study">
-<meta property="og:url" content="https://jeddie23.github.io/2022/02/28/markdown-study/index.html">
+<meta property="og:title" content="React和Vue的数据流管理">
+<meta property="og:url" content="https://jeddie23.github.io/2022/04/13/React%E5%92%8CVue%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="jeddie的随笔">
-<meta property="og:description" content="各级标题(#)">
+<meta property="og:description" content="前端的数据流与数据绑定">
 <meta property="og:locale">
-<meta property="og:image" content="https://jeddie23.github.io/images/%E9%BB%91%E7%A4%BE%E4%BC%9A.jpg">
-<meta property="article:published_time" content="2022-02-28T07:39:44.000Z">
-<meta property="article:modified_time" content="2022-03-13T16:29:04.998Z">
+<meta property="og:image" content="https://s1.ax1x.com/2022/04/13/LQk4pV.png">
+<meta property="article:published_time" content="2022-04-13T14:33:41.000Z">
+<meta property="article:modified_time" content="2022-04-13T18:56:17.220Z">
 <meta property="article:author" content="罗致远">
-<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="前端学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jeddie23.github.io/images/%E9%BB%91%E7%A4%BE%E4%BC%9A.jpg">
+<meta name="twitter:image" content="https://s1.ax1x.com/2022/04/13/LQk4pV.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://jeddie23.github.io/2022/02/28/markdown-study/"/>
+  <link rel="canonical" href="https://jeddie23.github.io/2022/04/13/React和Vue的数据流管理/"/>
 
 
 
 
 
-  <title>Markdown_study | jeddie的随笔</title>
+  <title>React和Vue的数据流管理 | jeddie的随笔</title>
   
 
 
@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jeddie23.github.io/2022/02/28/markdown-study/">
+    <link itemprop="mainEntityOfPage" href="https://jeddie23.github.io/2022/04/13/React%E5%92%8CVue%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81%E7%AE%A1%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Markdown_study</h1>
+          <h1 class="post-title" itemprop="name headline">React和Vue的数据流管理</h1>
         
 
         <div class="post-meta">
@@ -294,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-02-28T15:39:44+08:00">
-                2022-02-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-04-13T22:33:41+08:00">
+                2022-04-13
               </time>
             
 
@@ -317,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E5%B8%B8/" itemprop="url" rel="index">
-                    <span itemprop="name">日常</span>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -335,8 +335,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2022/02/28/markdown-study/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2022/02/28/markdown-study/" itemprop="commentCount"></span>
+                <a href="/2022/04/13/React%E5%92%8CVue%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81%E7%AE%A1%E7%90%86/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2022/04/13/React%E5%92%8CVue%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81%E7%AE%A1%E7%90%86/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -369,30 +369,56 @@
       
 
       
-        <p>各级标题(#)</p>
+        <h1>前端的数据流与数据绑定</h1>
+
 <span id="more"></span>
 
-<h1 id="study"><a href="#study" class="headerlink" title="study"></a>study</h1><h2 id="study-1"><a href="#study-1" class="headerlink" title="study"></a>study</h2><p>列表(-)</p>
-<ul>
-<li><p>apple</p>
-</li>
-<li><p>orange</p>
-<p>red orange</p>
-<p>pink orange</p>
-<p><a target="_blank" rel="noopener" href="https://www.ecnu.edu.cn/">ECNU</a></p>
-<p><img src="/images/%E9%BB%91%E7%A4%BE%E4%BC%9A.jpg" alt="黑社会"></p>
-<p>设置字体(*)</p>
-<p><em>斜眼字体</em></p>
-<p><strong>粗大字体</strong></p>
-<hr>
-<p>代码块(&#96;&#96;&#96;)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const sum = (a,b) =&gt; &#123;</span><br><span class="line">	return a + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>这篇文章旨在理清React和Vue中数据绑定和数据流之间的关联和区别</strong></p>
+<p>首先说一下前端的架构模式</p>
+<h2 id='introduce'>架构模式</h2>
 
-<blockquote>
-<p>引用内容</p>
-</blockquote>
-</li>
-</ul>
+<p>其实像官方文档所说，vue的核心库只关心视图层，react也是“用于构建用户界面”，也就是他们只关心View层，而我们一般说的vue，react是将其与既有工具链和各种库整合后的产物，</p>
+<p>Model层和View层是不变的：</p>
+<p>Model层：原始数据模型的管理         View层：用户直接操作的界面</p>
+<p>MVC，MVP，MVVM的区别在与<strong>M与V的联系的部分</strong>，</p>
+<p>即C：<strong>Controller</strong>，P：<strong>Presenter</strong>，VM：<strong>ViewModel</strong></p>
+<p><strong>MVC</strong>中，Controller将用户的操作反馈给Model，通知其进行数据更新，</p>
+<p>出现的问题：View层与Model层耦合，复用性差。我点击一个按钮，更新了Model并将数据渲染为List；这是我再点击一个按钮，同样更新这份数据但是渲染为Table。这个时候，由于之前逻辑已经连成一块，我们不得不再写一套渲染代码，而且当出了问题之后，因为各个模块是耦合在一起的，也不能快速判断究竟是哪个模块出现的问题。</p>
+<p><strong>MVP： Presenter</strong>: 比起Controller，Presenter会调用View层提供的接口去渲染Model。Presenter层既能将页面操作告知Model进行数据更新，又能在数据更新时负责通知View进行更新视图，使View层与Model层解耦。但是开发者依旧需要在Presenter中同时兼顾Dom和Data</p>
+<p><strong>ViewModel</strong>: 比起MVP中View需要自己提供API，MVVM在VM中构建一组状态数据（state data），作为View状态的抽象。然后通过数据绑定（data binding）使VM中的状态数据（state data）与View中的显示状态（screen state）保持一致。这样，VM中的展示逻辑只需要修改对应的状态数据，就可以控制View的状态，从而避免在View上开发大量的接口。</p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000015310674">网上</a>的一个例子：现在用户下拉刷新一个页面，页面上出现10条新的新闻，新闻总数从10条变成20条。那么MVC、MVP、MVVM的处理:</p>
+<ol>
+<li>View获取下拉事件，通知Controller</li>
+<li>Controller向后台Model发起请求，请求内容为下拉刷新</li>
+<li>Model获得10条新闻数据，传递给Controller</li>
+<li>Controller拿到10条新闻数据，可能做一些数据处理，然后拿处理好的数据渲染View<br> MVC: 拿到UI节点，渲染10条新闻<br> MVP: 通过View提供的接口渲染10条新闻<br> MVVM: 无需操作，只要VM的数据变化，通过数据绑定，View直接变化</li>
+</ol>
+<p>如果把Vue看成一个MVVM的框架，那么它的：</p>
+<p>Model层：接口层，原始数据模型</p>
+<p>View层：视图层，即template中的html代码</p>
+<p>VM层：基于一个html元素构建的Vue实例。将Model中的原始数据模型，构建成一份View层可以使用的视图模型。这个时候，Model层、View层完全解耦。开发者只需要专注业务逻辑以及ViewModel层与Model的交互逻辑</p>
+<p>而React并不能说是MVVM架构，</p>
+<p>mvvm中如果vm对象的属性发生改变，对应的View层会部分更新，而react没有纯粹的vm对象，它只有属性和状态，通过属性和状态去映射视图</p>
+<h2 id='1'>单向数据绑定与双向数据绑定</h2>
+
+<p>数据绑定就是View层和Model层之前的映射关系</p>
+<p><strong>单向数据绑定：</strong>Model层的更新会触发View的更新，而View的更新不会触发Model的更新，它们的作用是单向的。</p>
+<p><strong>双向数据绑定：</strong>Model的更新会触发View的更新，View的更新也会触发Model的更新，它们的作用是相互的。</p>
+<p><strong>React采用的单向数据绑定</strong>:</p>
+<p>当用户访问<code>View</code>时，通过触发<code>Events</code>进行交互，而在相应<code>Event Handlers</code>中，会触发对应的 <code>Actions</code>，而<code>Actions</code> 通过调用 <code>setState</code> 方法对<code>View</code>的<code>State</code> 进行更新，<code>State</code>更新后会触发<code>View</code>的重新渲染。</p>
+<p>可以看出，在 React 中，<code>View</code> 层是不能直接修改 <code>State</code>，必须通过相应的 <code>Actions</code> 来进行操作。</p>
+<h2 id='2'>单向数据流与双向数据流</h2>
+
+<h3 id='1.1'>单向数据流</h3>
+
+<p><strong>React、Vue 都只是单向数据流</strong>，即遵循父组件可以向子组件传递props，但是子组件数据的修改不会修改父组件传来的props，子组件只能通过事件通知父组件进行数据更改(<strong>react中子组件使用回调函数props.event()，父组件接受event&#x3D;{this.handleEvent}，Vue中</strong>的this.$emit)，如图：</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/LQk4pV"><img src="https://s1.ax1x.com/2022/04/13/LQk4pV.png" alt="LQk4pV.png" style="zoom: 50%;" /></a></p>
+<p>而所谓的<strong>双向数据流，就是指在子组件中可以直接更新父组件的数据。</strong></p>
+<p>单向数据流使得程序的易读性更高，更直观。</p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000015310674">参考网站1</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/64257809">参考网站2</a></p>
+<p><a href="">参考网站3</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6854573208646090765#comment">参考网站4</a></p>
 
       
     </div>
@@ -410,7 +436,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+            <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/" rel="tag"># 前端学习</a>
           
         </div>
       
@@ -423,15 +449,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2022/04/11/JS%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E5%9E%8B/" rel="next" title="JS变量和类型">
+                <i class="fa fa-chevron-left"></i> JS变量和类型
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2022/02/28/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" rel="prev" title="密码学基础笔记">
-                密码学基础笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -580,7 +606,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#study"><span class="nav-number">1.</span> <span class="nav-text">study</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#study-1"><span class="nav-number">1.1.</span> <span class="nav-text">study</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">前端的数据流与数据绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduce"><span class="nav-number">1.1.</span> <span class="nav-text">架构模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1"><span class="nav-number">1.2.</span> <span class="nav-text">单向数据绑定与双向数据绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2"><span class="nav-number">1.3.</span> <span class="nav-text">单向数据流与双向数据流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1.1"><span class="nav-number">1.3.1.</span> <span class="nav-text">单向数据流</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
